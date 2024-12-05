@@ -1,0 +1,103 @@
+
+body {
+	box-sizing: border-box;
+}
+
+:root {
+	background-color: var --#EEEEEE
+}
+
+ul {
+	display: flex;
+	border: 1px solid black;
+	gap: 1em;
+	cursor: pointer;
+	list-style-type: none;
+	background-color: rgb(32, 30, 30);
+  }
+  li {
+	border: 1px solid black;
+	padding: 0.5em 1.2em;
+	box-shadow: inset 0em 0em 0.4em gray;
+	transition: all 0.3s ease;
+	color: rgb(244, 244, 244);
+  }
+  li:hover {
+	transform: scale(1.05);
+  }
+
+
+
+ /*sida 1 meny*/
+  .meny {
+	background-color: #489078;
+	width: 40em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 3px solid hotpink;
+  }
+  h2 {
+	color: rgb(241, 241, 241);
+  }
+  
+  .karlstad {
+	background-color: black;
+	color: white;
+	box-shadow: 0 0 16px 0 #00000074;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 35em;
+	padding: 0.2em 1em;
+	
+  }
+
+ 
+  
+  .meny-items {
+	display: flex;
+	flex-direction: column;
+	padding: 0.2em 1em;
+	
+
+	border: 1px solid black;
+	border-radius: 0.3em;
+	width: 35em;
+  }
+	.meny-item {
+	background-color: rgb(52, 44, 44);
+	box-shadow: 0 0 16px 0 #00000074;
+	display: flex;
+	flex-direction: column;
+	width: 35em;
+	padding: 0.2em 1em;
+}
+/* sida 2 ditt köp*/
+.cart {
+	display: flex;
+	flex-direction: column;
+	background-color: #EEEEEE;
+	border: 1px solid black;
+	width: 40em;
+}
+
+
+/* sida 3 din beställning*/
+.your-order {
+	background-color: rgb(52, 44, 44);
+	display: flex;
+	flex-direction: column;
+	width: 40em;
+  }
+.cart-btn {
+	background-color: #EEEEEE;
+  }
+  .cart {
+	color: #353131;
+  }
+  img {
+	width: 10em;
+	height: 10em;
+  }
