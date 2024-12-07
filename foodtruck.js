@@ -105,25 +105,7 @@ try {
     console.error('Det uppstod ett fel:', error);
 }
 
-
-*/
-/*const input = document.querySelector('#input')
-const button = document.querySelector('#send-request')
-button.addEventListener('click', async () => {
-	
-	
-	//console.log('ska skicka request');
-	
-    const response = await fetch('https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/' )
-	url += '/menu'
-	console.log(response.status);
-	
-    const data = await response.json()
-    console.log('Data:', data)
-
-	//input.innerText = data.value
-
-	//
+//
 	
 	async function sendData() {
 	const url = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/'
@@ -187,7 +169,11 @@ sendData();*/
 }
 //	}*/
 //LYCKAS!!
-const url = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/menu';
+/*const menuItems =document.querySelector('#menu-items')
+const menuButton =document.querySelector('#menu-button')
+const itemsList =document.querySelector('#items-list')
+menuButton.addEventListener('click', async () => {
+	const url = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/menu?type=wonton';
 
 try {
     const response = await fetch(url, {
@@ -200,16 +186,202 @@ try {
 
     console.log('Status är: ', response.status);
 
-    // Kontrollera om svaret är okej
-    if (!response.ok) {
-        throw new Error('Nätverksrespons var inte ok: ' + response.statusText);
-    }
-
     const data = await response.json();
     console.log('Data från API: ', data);
+	const items = data.items
+	console.log(items);
+	const li = document.createElement('li')
+	li.innerText = `${items}`
+	menuItems.append(li) 
+	
 
 } catch (error) {
-    console.log('Det gick inte ...', error.message);
+	const message = 'Det gick inte ...' + error.message
+    console.log(message)
+	menuItems.innerText = message
 }
+})*/
 
-	
+    
+//LYCKAS SKRIVA UT MENU ITEMS
+//const threeMenus = document.querySelector('.three-menus');
+const menuItems = document.querySelector('#menu-items');
+
+
+//menuButton.addEventListener('click', 
+	themenu()
+	async function themenu()  {
+    const url = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/menu?type=wonton';
+
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                "Content-Type": 'application/json',
+                "x-zocom": "yum-edVCa1E6zDZRztaq"
+            }
+        });
+
+        console.log('Status är: ', response.status);
+
+        // Kontrollera om svaret är okej
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.log('Felmeddelande:', errorData);
+            throw new Error('Nätverksrespons var inte ok: ' + response.statusText);
+        }
+
+        const data = await response.json();
+        console.log('Data från API: ', data);
+
+        const items = data.items;
+        console.log(items);
+
+        // Rensa tidigare menyinnehåll
+        menuItems.innerHTML = '';
+
+        // Kontrollera att items är en array och har element
+        if (Array.isArray(items) && items.length > 0) {
+            items.forEach(item => {
+				//const menu1 = document.createElement("ul")
+				//menu1.id = menu1;
+				//menu1.innerHTML = 
+                const li = document.createElement('li');
+                li.innerText = `${item.name}................... ${item.price} SEK 
+				${item.ingredients}`; // Anta att varje item är en sträng
+                menuItems.append(li);
+				
+            });
+        } else {
+            menuItems.innerText = 'Inga menyalternativ tillgängliga';
+        }
+
+    } catch (error) {
+        const message = 'Det gick inte ... ' + error.message;
+        console.log(message);
+        menuItems.innerText = message;
+    }
+};
+//Funktion för att visa dipsåsmeny
+const menuItemsDip = document.querySelector('#menu-items-dip');
+themenudip()
+	async function themenudip()  {
+    const url = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/menu?type=dip';
+
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                "Content-Type": 'application/json',
+                "x-zocom": "yum-edVCa1E6zDZRztaq"
+            }
+        });
+
+        console.log('Status är: ', response.status);
+
+        // Kontrollera om svaret är okej
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.log('Felmeddelande:', errorData);
+            throw new Error('Nätverksrespons var inte ok: ' + response.statusText);
+        }
+
+        const data = await response.json();
+        console.log('Data från API: ', data);
+
+        const items = data.items;
+        console.log(items);
+
+        // Rensa tidigare menyinnehåll
+        menuItems.innerHTML = '';
+
+        // Kontrollera att items är en array och har element
+        if (Array.isArray(items) && items.length > 0) {
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = `${item.type}SÅS................... ${item.price} SEK 
+				${item.name}`; // Anta att varje item är en sträng
+                menuItems-dip.append(li);
+				
+            });
+        } else {
+            menuItems.innerText = 'Inga menyalternativ tillgängliga';
+        }
+
+    } catch (error) {
+        const message = 'Det gick inte ... ' + error.message;
+        console.log(message);
+        menuItems.innerText = message;
+    }
+};
+
+//Funktion för att visa drickmeny
+const menuItemsDrink = document.querySelector('#menu-items-drink');
+themenudrink()
+	async function themenudrink()  {
+    const url = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/menu?type=drink';
+
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                "Content-Type": 'application/json',
+                "x-zocom": "yum-edVCa1E6zDZRztaq"
+            }
+        });
+
+        console.log('Status är: ', response.status);
+
+        // Kontrollera om svaret är okej
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.log('Felmeddelande:', errorData);
+            throw new Error('Nätverksrespons var inte ok: ' + response.statusText);
+        }
+
+        const data = await response.json();
+        console.log('Data från API: ', data);
+
+        const items = data.items;
+        console.log(items);
+
+        // Rensa tidigare menyinnehåll
+        menuItems.innerHTML = '';
+
+        // Kontrollera att items är en array och har element
+        if (Array.isArray(items) && items.length > 0) {
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = `${item.type}................... ${item.price} SEK 
+				${item.name}`; // Anta att varje item är en sträng
+                menuItems-drink.append(li);
+				
+            });
+        } else {
+            menuItems.innerText = 'Inga menyalternativ tillgängliga';
+        }
+
+    } catch (error) {
+        const message = 'Det gick inte ... ' + error.message;
+        console.log(message);
+        menuItems.innerText = message;
+    }
+};
+/*
+// Hämta båda menyerna när sidan laddas funkar inte rätt
+window.addEventListener('load', () => {
+	document.querySelector(menuItems)
+	document.querySelector(menuItems-dip)
+	document.querySelector(menuItems-drink)
+ });
+ 
+*/
+
+/*
+// Hämta båda menyerna när sidan laddas funkar inte rätt
+window.addEventListener('load', () => {
+    themenu('/wonton');
+    themenudip('/dip');
+});
+
+*/

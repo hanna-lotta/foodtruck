@@ -23,10 +23,12 @@ ul {
 	color: rgb(244, 244, 244);
   }
   li:hover {
-	transform: scale(1.05);
+	transform: scale(1.01);
   }
 
-
+.lista {
+	list-style-type: none;
+}
 
  /*sida 1 meny*/
   .meny {
@@ -42,37 +44,25 @@ ul {
 	color: rgb(241, 241, 241);
   }
   
-  .karlstad {
-	background-color: black;
-	color: white;
-	box-shadow: 0 0 16px 0 #00000074;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	width: 35em;
-	padding: 0.2em 1em;
-	
-  }
+  
 
  
   
-  .meny-items {
+  .frame {
 	display: flex;
 	flex-direction: column;
 	padding: 0.2em 1em;
-	
-
 	border: 1px solid black;
 	border-radius: 0.3em;
 	width: 35em;
-  }
-	.meny-item {
+ 
 	background-color: rgb(52, 44, 44);
 	box-shadow: 0 0 16px 0 #00000074;
 	display: flex;
 	flex-direction: column;
-	width: 35em;
+	width: 30em;
 	padding: 0.2em 1em;
+	margin-top: 2em;
 }
 /* sida 2 ditt köp*/
 .cart {
