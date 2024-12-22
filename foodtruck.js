@@ -126,7 +126,7 @@ async function themenudrink()  {
 		const data = await response.json();
 		
 		const items = data.items;
-	
+		
 		
 		
 		menuItemsDrink.innerHTML = '';
@@ -229,7 +229,7 @@ async function themenudrink()  {
 					}
 				})
 			});
-		
+			
 			
 			
 			
