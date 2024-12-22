@@ -405,7 +405,7 @@ förra rgb(52, 44, 44);*/
 	  .take-button {
 		display: flex;
 		
-		padding: 1.1em 13.3em;
+		padding: 1.1em 12em;
 		border-radius: 0.2em;
 		cursor: pointer;
 		font-weight: bold;
@@ -423,7 +423,7 @@ förra rgb(52, 44, 44);*/
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 26em;
+		width: 23em;
 	}
 	.button-frame {
 		display: flex;
