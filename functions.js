@@ -1,5 +1,34 @@
-//POST
-/*
+
+//API NYCKEL
+const url = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/keys'
+const bodyToSend = {
+name: 'Hanna'
+}
+const options = {
+method: 'POST',
+headers: {
+	"Content-Type": 'application/json',  // vi skickar JSON i body
+	//"x-zocom" : "yum-edVCa1E6zDZRztaq" //min API nyckel
+},
+
+body: JSON.stringify(bodyToSend)
+}
+
+try {
+const response = await fetch(url,options)
+	console.log('status är: ', response.status);
+	
+	const data = await response.json()
+	console.log('data från API, key: ', data);
+	
+
+} catch (error) {
+console.log('det gick inte ...', error.message);
+
+
+
+//POST TENANTS
+
 sendData();
 	async function sendData() {
 	const url = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/tenants'
@@ -9,8 +38,8 @@ sendData();
 	const options = {
     method: 'POST',
 	headers: {
-        "Content-Type": 'application/json',  // vi skickar JSON i body
-        "x-zocom": "yum-edVCa1E6zDZRztaq" //min API nyckel 
+        "Content-Type": 'application/json',  
+        "x-zocom": "yum-edVCa1E6zDZRztaq" 
     },
 
     body: JSON.stringify(bodyToSend),
@@ -29,29 +58,24 @@ sendData();
 	console.log('det gick inte ...', error.message);
 	
 }
-}*/
+}
 
-//GET
-//LYCKAS!! 
+//GET HELA MENYN
 
 
 const url = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/menu';
 
 try {
     const response = await fetch(url, {
-        method: 'GET', // Anger HTTP-metoden
+        method: 'GET', 
         headers: {
-            "Content-Type": 'application/json', // Vi skickar JSON
-            "x-zocom": "yum-edVCa1E6zDZRztaq" // Din API-nyckel
+            "Content-Type": 'application/json', 
+            "x-zocom": "yum-edVCa1E6zDZRztaq" 
         }
     });
 
     console.log('Status är: ', response.status);
 
-    // Kontrollera om svaret är okej
-    if (!response.ok) {
-        throw new Error('Nätverksrespons var inte ok: ' + response.statusText);
-    }
 
     const data = await response.json();
     console.log('Data från API: ', data);
@@ -59,62 +83,13 @@ try {
 } catch (error) {
     console.log('Det gick inte ...', error.message);
 }
+	
 
-//funktion för att lägga till meny-lista/wonton
-themenu()
-async function themenu()  {
-const url = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/menu?type=wonton';
-
-try {
-	const response = await fetch(url, {
-		method: 'GET',
-		headers: {
-			"Content-Type": 'application/json',
-			"x-zocom": "yum-edVCa1E6zDZRztaq"
-		}
-	});
-
-	console.log('Status är: ', response.status);
-
-	// Kontrollera om svaret är okej
-	if (!response.ok) {
-		const errorData = await response.json();
-		console.log('Felmeddelande:', errorData);
-		throw new Error('Nätverksrespons var inte ok: ' + response.statusText);
-	}
-
-	const data = await response.json();
-	console.log('Data från API: ', data);
-
-	const items = data.items;
-	console.log(items);
-
-	// Rensa tidigare menyinnehåll
-	menuItems.innerHTML = '';
-
-	// Kontrollera att items är en array och har element
-	if (Array.isArray(items) && items.length > 0) {
-		items.forEach(item => {
-			const li = document.createElement('li');
-			li.innerText = `${item.name}................... ${item.price} SEK 
-			${item.ingredients}`; // Anta att varje item är en sträng
-			menuItems.append(li);
-			
-		});
-	} else {
-		menuItems.innerText = 'Inga menyalternativ tillgängliga';
-	}
-
-} catch (error) {
-	const message = 'Det gick inte ... ' + error.message;
-	console.log(message);
-	menuItems.innerText = message;
-}
-};
-
+    
 //Funktion för att visa dipsåsmeny
 themenudip()
-	async function themenudip()  {
+const menuItemsDip = document.querySelector('#menu-items-dip');
+async function themenudip()  {
     const url = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/menu?type=dip';
 
     try {
@@ -128,43 +103,22 @@ themenudip()
 
         console.log('Status är: ', response.status);
 
-        // Kontrollera om svaret är okej
-        if (!response.ok) {
-            const errorData = await response.json();
-            console.log('Felmeddelande:', errorData);
-            throw new Error('Nätverksrespons var inte ok: ' + response.statusText);
-        }
-
         const data = await response.json();
         console.log('Data från API: ', data);
 
         const items = data.items;
         console.log(items);
 
-        // Rensa tidigare menyinnehåll
-        menuItems.innerHTML = '';
-
-        // Kontrollera att items är en array och har element
-        if (Array.isArray(items) && items.length > 0) {
-            items.forEach(item => {
-                const li = document.createElement('li');
-                li.innerText = `${item.type}SÅS................... ${item.price} SEK 
-				${item.name}`; // Anta att varje item är en sträng
-                menuItems.append(li);
-				
-            });
-        } else {
-            menuItems.innerText = 'Inga menyalternativ tillgängliga';
-        }
 
     } catch (error) {
         const message = 'Det gick inte ... ' + error.message;
         console.log(message);
-        menuItems.innerText = message;
+        menuItemsDip.innerText = message;
     }
 };
 
 //Funktion för att visa drickmeny
+const menuItemsDrink = document.querySelector('#menu-items-drink');
 themenudrink()
 	async function themenudrink()  {
     const url = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/menu?type=drink';
@@ -180,12 +134,6 @@ themenudrink()
 
         console.log('Status är: ', response.status);
 
-        // Kontrollera om svaret är okej
-        if (!response.ok) {
-            const errorData = await response.json();
-            console.log('Felmeddelande:', errorData);
-            throw new Error('Nätverksrespons var inte ok: ' + response.statusText);
-        }
 
         const data = await response.json();
         console.log('Data från API: ', data);
@@ -193,36 +141,37 @@ themenudrink()
         const items = data.items;
         console.log(items);
 
-        // Rensa tidigare menyinnehåll
-        menuItems.innerHTML = '';
-
-        // Kontrollera att items är en array och har element
-        if (Array.isArray(items) && items.length > 0) {
-            items.forEach(item => {
-                const li = document.createElement('li');
-                li.innerText = `${item.type}................... ${item.price} SEK 
-				${item.name}`; // Anta att varje item är en sträng
-                menuItems.append(li);
-				
-            });
-        } else {
-            menuItems.innerText = 'Inga menyalternativ tillgängliga';
-        }
 
     } catch (error) {
-        const message = 'Det gick inte ... ' + error.message;
-        console.log(message);
-        menuItems.innerText = message;
+        	const message = 'Det gick inte ... ' + error.message;
+        	console.log(message);
+        	menuItemsDrink.innerText = message;
     }
-};
+	};
 
 
 
-/*
-// Hämta båda menyerna när sidan laddas funkar inte rätt
-window.addEventListener('load', () => {
-   document.querySelector(menuItems)
+//GET ORDERSID
+const orderurl = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/cm16/orders';
+
+try {
+const response = await fetch(orderurl, {
+method: 'GET', 
+headers: {
+"Content-Type": 'application/json', 
+"x-zocom": "yum-edVCa1E6zDZRztaq" 
+}
 });
 
-*/
+console.log('Status från ordersID är: ', response.status);
 
+
+const data = await response.json();
+console.log('Get orders från API: ', data);
+
+
+
+} catch (error) {
+console.log('Det gick inte ...', error.message);
+}
+}
