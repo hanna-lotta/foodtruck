@@ -159,11 +159,14 @@ förra rgb(52, 44, 44);*/
 	flex-direction: row;
   }
   .minusknapp {
-	padding: 0.2em 0.6em;
+	padding: 0.3em 0.75em;
+
 	
   }
   .plusknapp {
-	padding: 0.25em 0.5em;
+	padding: 0.3em 0.75em;
+	
+	
   }
   .antal {
 	margin-left: 0.4em;
