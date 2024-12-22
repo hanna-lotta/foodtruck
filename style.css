@@ -265,9 +265,6 @@ förra rgb(52, 44, 44);*/
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	
-	
-	
 }
 .sum {
 	font-weight: bold;
@@ -358,7 +355,7 @@ förra rgb(52, 44, 44);*/
 		width: 100vw;
 		display: flex;
 	}
-}	
+	
 	#cart {
 		position: relative;
 		left: 10em;
@@ -380,8 +377,6 @@ förra rgb(52, 44, 44);*/
 		padding: 0.2em 1em;
 		margin-top: 4em;
 		width: 100vw
-		
-	
 	}
 
 	#cart-items > * {
@@ -409,7 +404,7 @@ förra rgb(52, 44, 44);*/
 	  }
 	  .take-button {
 		display: flex;
-		flex-grow: 1;
+		
 		padding: 1.1em 13.3em;
 		border-radius: 0.2em;
 		cursor: pointer;
@@ -417,6 +412,7 @@ förra rgb(52, 44, 44);*/
 		background-color: #353131;
 		color: rgb(242, 242, 242);
 		margin-bottom: 1em;
+		
 	}
 	.total {
 		padding: 0.9em 5.9em;
@@ -427,7 +423,6 @@ förra rgb(52, 44, 44);*/
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		
 		width: 26em;
 	}
 	.button-frame {
@@ -472,6 +467,7 @@ förra rgb(52, 44, 44);*/
 		border-radius: 0.4em;
 		cursor: pointer;
 	}
+}
 	  @media (min-width: 500px) {
 
 		#cart-order {
@@ -494,7 +490,6 @@ förra rgb(52, 44, 44);*/
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		
 		width: 30em;
 	}
 
@@ -510,7 +505,7 @@ förra rgb(52, 44, 44);*/
 		margin-bottom: 1em;
 
 }
-	  }
+	  
 	  #kvitto-button {
 		padding: 1em 12em;
 		font-weight: bold;
@@ -529,6 +524,7 @@ förra rgb(52, 44, 44);*/
 		border-radius: 0.4em;
 		cursor: pointer;
 	}
+}
 @media (min-width: 550px) {
 	.take-button {
 		display: flex;
@@ -616,7 +612,7 @@ förra rgb(52, 44, 44);*/
 		left: 43em;
 		cursor: pointer;
 	}
-}
+
 .total {
 	padding: 1em 5.9em;
 	border-radius: 0.2em;
@@ -640,6 +636,7 @@ förra rgb(52, 44, 44);*/
 	color: rgb(242, 242, 242);
 	margin-bottom: 1em;
 	
+}
 }
 @media (min-width: 900px) {
 	
