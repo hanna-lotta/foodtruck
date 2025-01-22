@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="style.css">
 	<script type="module" src="foodtruck.js"></script>
 </head>
-	<header></header>
+<header></header>
 <body>
 	
 	<section id="meny" class="hidden">
@@ -15,20 +15,19 @@
 			<img src="cart btn (1).png"alt="shopping-cart" id="cart">
 			<div class="span"><span id="cart-count"></span></div>
 		</div>
-
 		<h2><strong> MENY </strong></h2>
 		<div class="frame"><ul id="menu-items"></ul></div>
 		<div class="frame"><ul id="menu-items-dip"></ul></div>
 		<div class="frame"><ul id="menu-items-drink"></ul></div>
 	</section>
-		<!-----------sida 2, Kundvagnssektion --------> 
-			
-	<section id="cartPage" class="hidden">
-			<img src="cart btn (1).png"alt="shopping-cart-order" id="cart-order">
-		
+	<!-----------sida 2, Kundvagnssektion --------> 
 	
-		<div class="cart-frame"><ul id="cart-items"></ul>
-
+	<section id="cartPage" class="hidden">
+		<img src="cart btn (1).png"alt="shopping-cart-order" id="cart-order">
+		<div class="cart-frame">
+			<div id="selectedItemsContainer">
+				<ul id="cart-items"></ul>
+			</div>
 			<div class="button-frame">
 				<div class="total">
 					<div class="totally-left">
@@ -40,30 +39,24 @@
 					</div>	
 				</div>	
 			</div>
-				<button class="take-button">TAKE MY MONEY!</button>
-			</div>
-			
-  
-   
-    
-   
-  </div>
+			<button class="take-button">TAKE MY MONEY!</button>
+		</div>
+	</div>
 </section>	
-		<!-----------sida 3 -------->
-	<section id="your-order" class="hidden">
-		<img src="a087f7ec21b4c797b479c102d8b7d9f8.png" alt="foodpicture">
-		<h3 class="cooking-text">DINA WONTONS TILLAGAS</h3>
-		<P class="eat-text">ETA</P>
-		<P class="code-text">KOD</P>
-		<div class="kvitto-frame">
-			<button id="kvitto-button">SE KVITTO</button>
-		</div>
-		<div class="order-frame">
+<!-----------sida 3 -------->
+<section id="your-order" class="hidden">
+	<img src="a087f7ec21b4c797b479c102d8b7d9f8.png" alt="foodpicture">
+	<h3 class="cooking-text">DINA WONTONS TILLAGAS</h3>
+	<P class="eat-text">ETA</P>
+	<P class="code-text">KOD</P>
+	<div class="kvitto-frame">
+		<button id="kvitto-button">SE KVITTO</button>
+	</div>
+	<div class="order-frame">
 		<button id="order">GÖR EN NY BESTÄLLNING</button>
-		</div>
-	</section>
-	<!-----------sida 4 -------->
-	<section id="recietpage" class="hidden"></section>
-
+	</div>
+</section>
+<!-----------sida 4 -------->
+<section id="recietpage" class="hidden"></section>
 </body>
 </html>
