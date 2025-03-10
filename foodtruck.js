@@ -41,13 +41,29 @@ themenudrink([])
 let takeButton = document.querySelector('.take-button')
 takeButton.addEventListener('click', function() {
 	let orderObjects = getOrderList()
-	const orderIds = orderObjects.map(item => item.id);
+	/*const orderItems = orderObjects.map(item => item.id);*/
+	
+	// Upprepa varje ID beroende på dess quantity
+    let orderItems = [];
+    orderObjects.forEach(item => {
+        for (let i = 0; i < item.quantity; i++) {
+            orderItems.push(item.id); // Lägg till ID:t flera gånger
+			
+        }
+		
+    });
+
+	/*const orderItems = orderObjects.map(item => ({
+        id: item.id,
+        quantity: Number(item.quantity)
+    })); */
+
 	
 	sendData();
 	async function sendData() {
 		const postUrl = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/cm16/orders'
 		const postData = {
-			items: orderIds
+			items: orderItems
 		}
 		const options = {
 			method: 'POST',
@@ -85,6 +101,8 @@ takeButton.addEventListener('click', function() {
 			
 			
 			eatText.innerText = `ETA ${differenceInMinutes} MIN`
+
+			return true; // Order skickades OK
 			
 			
 		} catch (error) {

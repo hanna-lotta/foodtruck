@@ -1,6 +1,7 @@
 function updateCartCount(orderList) {    
 	const totalCount = orderList.reduce((sum, item) => sum + item.quantity, 0);	
 	document.getElementById('cart-count').textContent = totalCount;
+	console.log('foodtruck updatecartcount ',orderList );
 	
 	    
 }
