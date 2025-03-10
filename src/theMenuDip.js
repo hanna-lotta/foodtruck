@@ -47,13 +47,13 @@ async function themenudip(orderList)  {
                     localStorage.setItem('orderList', JSON.stringify(getOrderList()));
 
 					function loadCartItems() {
-    const selectedItemsContainer = document.getElementById('selectedItemsContainer');
-    selectedItemsContainer.innerHTML = ''; // Rensa listan först
+    					const selectedItemsContainer = document.getElementById('selectedItemsContainer');
+    					selectedItemsContainer.innerHTML = ''; // Rensa listan först
 
-    // Hämta ordern från localStorage
-    let orderList = JSON.parse(localStorage.getItem('orderList')) || [];
+   				 	// Hämta ordern från localStorage
+    				let orderList = JSON.parse(localStorage.getItem('orderList')) || [];
 
-    orderList.forEach(item => {
+    				orderList.forEach(item => {
 					const li = document.createElement('li');
 					li.innerText = `${item.name.toUpperCase()} DIP................... ${item.price} SEK`
 					selectedItemsContainer.appendChild(li);

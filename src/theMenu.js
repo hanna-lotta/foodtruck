@@ -1,6 +1,7 @@
 import { apiKey } from "./constants.js";
 import { createQuantityButtons, createMenuOrderItem } from "./buttonsAndListItems.js";
 
+
 // Funktion för att skapa meny sida 1
 async function createMenu() {
 	const menuItems = document.querySelector('#menu-items');
@@ -40,6 +41,7 @@ async function createMenu() {
 				createQuantityButtons(item)
 			
 		});
+		
 	})
 	}
 	} catch (error) {

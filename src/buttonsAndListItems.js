@@ -40,11 +40,23 @@ function createQuantityButtons(item) {
 			item.quantity = 1;
 		}
 		addToOrder(item)
+		// Spara uppdaterad kundvagn till localStorage
+		localStorage.setItem('orderList', JSON.stringify(getOrderList()));
+
+		function loadCartItems() {
+			const selectedItemsContainer = document.getElementById('selectedItemsContainer');
+			selectedItemsContainer.innerHTML = ''; // Rensa listan först
+
+			// Hämta ordern från localStorage
+			let orderList = JSON.parse(localStorage.getItem('orderList')) || [];
+			orderList.forEach(item => {
 		const li = document.createElement('li');
 		li.innerText = `${item.name.toUpperCase()}................... ${item.price} SEK`
 		selectedItemsContainer.appendChild(li);
 		li.appendChild(createQuantityButtons( { id: item.id, name: item.name, price : item.price, quantity: item.quantity } ) );
-					
+	})			
 	}
-
+	loadCartItems()
+	document.addEventListener("DOMContentLoaded", loadCartItems);
+	}
 	export { createQuantityButtons, createMenuOrderItem }
