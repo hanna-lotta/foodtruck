@@ -2,7 +2,7 @@
 import { createMenu } from "./src/theMenu.js";
 import { themenudip } from "./src/theMenuDip.js";
 import { getOrderList, addToOrder, removeFromOrder, } from "./src/prepareOrder.js";
-import { goToOrderPage, hideviews, goToMenuPage, goToYourOrderPage, goToStart } from "./src/toggleview.js";
+import { goToOrderPage, hideviews, goToMenuPage, goToYourOrderPage, goToStart, goToRecietPage } from "./src/toggleview.js";
 import { themenudrink } from "./src/theMenuDrink.js";
 import { updateCartCount, updatePrice, } from "./cartAndPrice.js";
 import { createQuantityButtons, createMenuOrderItem } from "./src/buttonsAndListItems.js";
@@ -18,6 +18,7 @@ const yourOrder = document.querySelector('#your-order')
 const cartOrder = document.querySelector('#cart-order')
 const cartPage = document.querySelector('#cartPage')
 const cart = document.querySelector('#cart')
+const recietPage = document.getElementById('recietpage');
 
 
 meny.classList.remove('hidden')
@@ -41,7 +42,7 @@ themenudrink([])
 let takeButton = document.querySelector('.take-button')
 takeButton.addEventListener('click', function() {
 	let orderObjects = getOrderList()
-	/*const orderItems = orderObjects.map(item => item.id);*/
+	localStorage.setItem('latestOrder', JSON.stringify(orderObjects));
 	
 	// Upprepa varje ID beroende på dess quantity
     let orderItems = [];
@@ -52,11 +53,6 @@ takeButton.addEventListener('click', function() {
         }
 		
     });
-
-	/*const orderItems = orderObjects.map(item => ({
-        id: item.id,
-        quantity: Number(item.quantity)
-    })); */
 
 	
 	sendData();
@@ -81,11 +77,13 @@ takeButton.addEventListener('click', function() {
 			console.log('full response: ', response.status);
 			
 			const data = await response.json()
+			const orderId = data.order.id;
 			console.log('postdata från API: ', data);
-			
+			// Visa på your-order-sidan
 			const codeText = document.querySelector('.code-text')
-			codeText.innerText = `${data.order.id}`
-			
+			codeText.innerText = orderId
+			// Spara till localStorage för kvittosidan
+			localStorage.setItem('latestOrderId', orderId);
 			
 			const eatText = document.querySelector('.eat-text')
 			
@@ -111,6 +109,7 @@ takeButton.addEventListener('click', function() {
 		}
 	}
 	goToYourOrderPage()
+	goToRecietPage()
 	goToMenuPage()
 })
 
