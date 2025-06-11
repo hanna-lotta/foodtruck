@@ -34,6 +34,16 @@ function goToMenuPage() {
 	})
 }
 
+function newOrder() {
+	const order = document.querySelector('#order-recietpage')
+	const meny = document.querySelector('#meny')
+	order.addEventListener('click', function() {
+		hideviews()
+		meny.classList.remove('hidden')
+		location.reload()
+	})
+}
+
 function goToYourOrderPage() { 
 	const yourOrder = document.querySelector('#your-order')
 	let takeButton = document.querySelector('.take-button')
@@ -53,23 +63,39 @@ function goToRecietPage() {
 
 		 // Hämta beställningen
         const order = JSON.parse(localStorage.getItem('latestOrder'));
-        const recietFrame = document.querySelector('.reciet-frame');
-        recietFrame.innerHTML = "<h1>KVITTO</h1>"; // Rensa och lägg till rubrik
+		const orderList = document.querySelector('#recietpage .order-list');
+        orderList.innerHTML = ""; 
+        
 
 		const orderId = localStorage.getItem('latestOrderId');
 		if (orderId) {
-    	recietFrame.innerHTML += `<p class="order-id">#${orderId}</p>`;
+    	orderList.innerHTML += `<p class="order-id">#${orderId}</p>`;
 		}
 
 
-        // Lägg till varje beställt item
+        // Beställningen
         order.forEach(item => {
-            recietFrame.innerHTML += `<p>${item.name}.................. ${item.price} SEK  ${item.quantity} stycken</p>`;
+            orderList.innerHTML += `
+			<div class="reciet-row">
+			<span class="reciet-name">${item.name.toUpperCase()}</span>
+			<span class="reciet-dots"></span>
+			<span class="reciet-price">${item.price} SEK</span>
+			</div>
+			<div class="reciet-quantity">${item.quantity} stycken</div>`;
+			
+			
         });
-
-
 		const totalPrice = order.reduce((sum, item) => sum + item.price * item.quantity, 0);
-		recietFrame.innerHTML += `<hr><p class="sum">Totalt: ${totalPrice} SEK</p>`;
+		document.querySelector('#recietpage .sum').textContent = `${totalPrice} SEK`;
+
+		newOrder();
+		/*
+		  const orderBtn = document.querySelector('#recietpage #order-recietpage');
+        if (orderBtn) {
+            orderBtn.addEventListener('click', goToMenuPage);
+        }
+		console.log('gotomenupage', goToMenuPage);*/
+		
     	});
 		}
 

@@ -207,7 +207,8 @@ button {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 35em;
+	width: 100%;
+	margin-top: auto;
 	
 }
 .totally-left {
@@ -233,14 +234,15 @@ button {
 	justify-content: center;
 	align-items: center;
 	max-width: 24em;
+	
 }
 .sum {
 	font-weight: bold;
 	display: flex;
 	justify-self: end;
-	justify-content: space-between;
-	flex-direction: row;
-	
+	justify-content: flex-end;
+	align-items: center;
+	white-space: nowrap;
 }
 .moms {
 	font-weight: bold;
@@ -318,6 +320,15 @@ img {
 	border-radius: 0.4em;
 	cursor: pointer;
 }
+#order-recietpage {
+	padding: 1.3em 8.5em;
+	font-weight: bold;
+	margin-top: 1em;
+	background-color: rgb(11, 11, 11);
+	color:  #EEEEEE;
+	border-radius: 0.4em;
+	cursor: pointer;
+}
 #recietpage {
 	background-color: #605858; 
 	display: flex;
@@ -326,6 +337,7 @@ img {
 	align-items: center;
 	flex-direction: column;
 	width: 100vw;
+	height: 100vh;
 }
 .reciet-frame {
 	background-color: #EEEEEE;
@@ -333,21 +345,68 @@ img {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 96vw;
 	margin-top: 2em;
 	margin-bottom: 2em;
 	padding: 1em 0em;
 	border-radius: 0.3em;
 	box-shadow: 0em 0em 0.1em gray;
+	width: 24em;
+	
+}
+
+.order-list {
+	background-color: #EEEEEE;
+   width: 100vw;
+	margin-bottom: 1em;
+	padding: 1em;
+	width: 24em;
+   
 }
 .order-id {
-	
+	text-align: center;
 	color: black;
 	border-radius: 0.4em;
 	padding: 1em 2em;
 	font-weight: bold;
 	margin-top: 1em;
 	margin-bottom: 1em;
+}
+.reciet-header {
+	color: black;
+	font-weight: bold;
+	text-align: center;
+	font-size: 1.4em;
+	margin-top: 2em;
+}
+
+.reciet-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0.2em;
+
+}
+.reciet-name {
+    flex: 0 1 auto;
+	font-weight: bold;
+}
+.reciet-dots {
+    flex: 1 1 auto;
+    border-bottom: 2px dotted #333;
+    margin: 0 0.5em;
+    height: 0.7em;
+}
+.reciet-price {
+    flex: 0 1 auto;
+    white-space: nowrap;
+	font-weight: bold;
+}
+.reciet-quantity {
+   
+    margin-bottom: 0.5em;
+	text-align: left;      
+    display: block; 
+	align-self: flex-start;
 }
 
 @media (min-width: 390px) {
