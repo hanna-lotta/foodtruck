@@ -69,7 +69,7 @@ function goToRecietPage() {
 
 		const orderId = localStorage.getItem('latestOrderId');
 		if (orderId) {
-    	orderList.innerHTML += `<p class="order-id">#${orderId}</p>`;
+    	orderList.innerHTML += `<p class="order-id">#${orderId.toUpperCase()}</p>`;
 		}
 
 

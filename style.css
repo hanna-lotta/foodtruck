@@ -208,7 +208,7 @@ button {
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	margin-top: auto;
+	
 	
 }
 .totally-left {
@@ -290,6 +290,15 @@ img {
 	padding-bottom: 4em;
 	font-weight: bold;
 }
+.reciet-logo {
+	width: 4em;
+	height: 4em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 2em;
+	
+}
 .kvitto-frame {
 	border: 1px solid #EEEEEE;
 	border-radius: 0.4em;
@@ -309,7 +318,7 @@ img {
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 2em;
-	border: 1ps solid white;
+	
 }
 #order {
 	padding: 1.3em 8.5em;
@@ -320,6 +329,14 @@ img {
 	border-radius: 0.4em;
 	cursor: pointer;
 }
+.reciet-order-frame {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 2em;
+	
+}
 #order-recietpage {
 	padding: 1.3em 8.5em;
 	font-weight: bold;
@@ -328,6 +345,7 @@ img {
 	color:  #EEEEEE;
 	border-radius: 0.4em;
 	cursor: pointer;
+	
 }
 #recietpage {
 	background-color: #605858; 
@@ -337,7 +355,7 @@ img {
 	align-items: center;
 	flex-direction: column;
 	width: 100vw;
-	height: 100vh;
+	
 }
 .reciet-frame {
 	background-color: #EEEEEE;
@@ -347,7 +365,7 @@ img {
 	align-items: center;
 	margin-top: 2em;
 	margin-bottom: 2em;
-	padding: 1em 0em;
+	
 	border-radius: 0.3em;
 	box-shadow: 0em 0em 0.1em gray;
 	width: 24em;
@@ -356,9 +374,9 @@ img {
 
 .order-list {
 	background-color: #EEEEEE;
-   width: 100vw;
 	margin-bottom: 1em;
 	padding: 1em;
+	padding-top: 0em;
 	width: 24em;
    
 }
@@ -368,7 +386,8 @@ img {
 	border-radius: 0.4em;
 	padding: 1em 2em;
 	font-weight: bold;
-	margin-top: 1em;
+	font-size: 0.8em;
+	color: rgb(109, 108, 108);
 	margin-bottom: 1em;
 }
 .reciet-header {
@@ -376,7 +395,7 @@ img {
 	font-weight: bold;
 	text-align: center;
 	font-size: 1.4em;
-	margin-top: 2em;
+	margin-top: 0.7em;
 }
 
 .reciet-row {
